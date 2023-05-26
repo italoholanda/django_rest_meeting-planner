@@ -2,13 +2,13 @@ from .models import Meeting, Room
 from rest_framework import serializers
 
 
-class MeetingSerializer(serializers.HyperlinkedModelSerializer):
+class MeetingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Meeting
-        fields = ['title', 'duration', 'date', 'start_time']
+        fields = ('title', 'duration', 'date', 'start_time')
 
 
-class RoomSerializer(serializers.HyperlinkedModelSerializer):
+class RoomSerializer(serializers.ModelSerializer):
     class Meta:
         model = Room
-        fields = ['name', 'floor', 'room_number']
+        fields = ('name', 'floor', 'room_number')
