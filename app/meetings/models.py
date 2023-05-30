@@ -9,6 +9,7 @@ class Meeting(models.Model):
     date = models.DateField()
     start_time = models.TimeField(default=time(9))
     duration = models.IntegerField(default=1)
+    user_id = models.IntegerField(default=1)
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
 
     @property

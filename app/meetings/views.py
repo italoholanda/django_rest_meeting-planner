@@ -7,13 +7,16 @@ from rest_framework.decorators import api_view
 
 @api_view(['GET'])
 def get_meetings(request):
-    objects = Meeting.objects.all()
+    user_id = request.user.id
+    objects = Meeting.objects.filter(user_id=user_id)
     serializer = MeetingSerializer(objects, many=True)
     return Response(serializer.data)
 
 
 @api_view(['POST'])
 def create_meeting(request):
+    user_id = request.user.id
+    request.data.user_id = user_id
     serializer = MeetingSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()

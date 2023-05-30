@@ -7,13 +7,16 @@ from rest_framework.decorators import api_view
 
 @api_view(['GET'])
 def get_rooms(request):
-    objects = Room.objects.all()
+    user_id=request.user.id
+    objects = Room.objects.filter(user_id=user_id)
     serializer = RoomSerializer(objects, many=True)
     return Response(serializer.data)
 
 
 @api_view(['POST'])
 def create_room(request):
+    user_id=request.user.id
+    request.data.user_id = user_id
     serializer = RoomSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
