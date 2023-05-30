@@ -1,1 +1,3 @@
-curl -X POST -d "grant_type=password&username=$USER_NAME&password=$USER_PASSWORD" -u "MOFHkma0fe1CXaXpUvdlWvboVlAwoE1mJtSsB58u:tMf5bqRxDTvDVLWKPY1QjBBkLkqVJzpenVPgvMicFoVAnmy1z62F9LKgjnqwg7Coh1VWdv98mFwyNYKfr8cAg3N0kHpb4QuG5zBuK4OBckUAEDBLoZchxjCC9EGqHtVl" http://localhost:8000/o/token/
+
+
+curl -X POST -d "grant_type=password&username=$USER_NAME&password=$USER_PASSWORD" -u "$CLIENT_ID:$CLIENT_SECRET" http://localhost:8000/o/token/
