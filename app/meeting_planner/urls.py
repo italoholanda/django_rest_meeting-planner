@@ -22,4 +22,5 @@ urlpatterns = [
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     path('admin/', admin.site.urls),
     path('meetings/', include('meetings.urls')),
+    path('rooms/', include('rooms.urls')),
 ]

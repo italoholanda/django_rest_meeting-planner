@@ -1,5 +1,5 @@
-from django.urls import path, include
-from .views import get_meetings, create_meeting, update_meeting, delete_meeting, rooms
+from django.urls import path
+from .views import get_meetings, create_meeting, update_meeting, delete_meeting
 
 
 urlpatterns = [
@@ -7,6 +7,4 @@ urlpatterns = [
     path('create/', create_meeting),
     path('update/', update_meeting),
     path('delete/', delete_meeting),
-    path('rooms/', rooms),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
