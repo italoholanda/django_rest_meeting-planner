@@ -3,14 +3,11 @@
 import BasePage from "@/components/BasePage";
 import ContentBox from "@/components/ContentBox";
 
-import {
-  CreateMeetingAdapter,
-  IMeeting,
-} from "@/services/meetings-service/create-meeting-adapter";
-
+import { CreateMeetingAdapter } from "@/services/meetings-service/create-meeting-adapter";
 import { useSession } from "@/hooks/useSession";
 import { RoomsSelect } from "@/components/RoomsSelect";
 import { useRouter } from "next/navigation";
+import { IMeeting } from "@/model/meetings";
 import { useState } from "react";
 
 import "./styles.css";

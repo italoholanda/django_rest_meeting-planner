@@ -1,11 +1,5 @@
+import { IRoom } from "@/model/rooms";
 import axios from "axios";
-
-export interface IRoom {
-  id: string;
-  name: string;
-  floor: string;
-  number: string;
-}
 
 class RequestRoomsAdapter {
   private SERVER_URL = `${process.env.NEXT_PUBLIC_BACKEND}/rooms/`;

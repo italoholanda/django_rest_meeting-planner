@@ -1,13 +1,10 @@
 "use client";
 
-import {
-  IRoom,
-  RequestRoomsAdapter,
-} from "@/services/rooms-service/request-rooms-adapter";
-
+import { RequestRoomsAdapter } from "@/services/rooms-service/request-rooms-adapter";
 import { useRouter } from "next/navigation";
 import { useSession } from "@/hooks/useSession";
 import { ChangeEvent, useEffect, useState } from "react";
+import { IRoom } from "@/model/rooms";
 
 interface IProps {
   onChange?: (arg: string) => any;
@@ -35,8 +32,10 @@ export const RoomsSelect = ({ onChange }: IProps) => {
   }, []);
 
   return (
-    <select  onChange={handleChange} defaultValue={0}>
-      <option disabled value={0}>Select a room</option>
+    <select onChange={handleChange} defaultValue={0}>
+      <option disabled value={0}>
+        Select a room
+      </option>
       {rooms.map((room) => (
         <option key={room.id} value={room.id}>
           {room.name}

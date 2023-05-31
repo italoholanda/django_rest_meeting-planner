@@ -1,13 +1,5 @@
+import { IMeeting } from "@/model/meetings";
 import axios from "axios";
-
-export interface IMeeting {
-  name: string;
-  date: string;
-  hour: string;
-  roomId: string;
-  duration: string;
-  id: string;
-}
 
 class RequestMeetingsAdapter {
   private SERVER_URL = `${process.env.NEXT_PUBLIC_BACKEND}/meetings/`;
