@@ -16,8 +16,8 @@ def get_meetings(request):
 @api_view(['POST'])
 def create_meeting(request):
     user_id = request.user.id
-    request.data.user_id = user_id
-    serializer = MeetingSerializer(data=request.data)
+    data = {**request.data, 'user_id': user_id}
+    serializer = MeetingSerializer(data=data)
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)

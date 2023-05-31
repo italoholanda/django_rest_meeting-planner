@@ -35,9 +35,10 @@ export const RoomsSelect = ({ onChange }: IProps) => {
   }, []);
 
   return (
-    <select onChange={handleChange}>
+    <select  onChange={handleChange} defaultValue={0}>
+      <option disabled value={0}>Select a room</option>
       {rooms.map((room) => (
-        <option key={room.id} value={room.number}>
+        <option key={room.id} value={room.id}>
           {room.name}
         </option>
       ))}
