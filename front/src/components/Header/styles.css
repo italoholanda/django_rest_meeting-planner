@@ -1,0 +1,18 @@
+.header {
+  padding: 1rem;
+  width: 100vw;
+  margin: 0;
+  display: fixed;
+  top: 0;
+  z-index: 2;
+  background: #222;
+  color: #eee;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  color: #fff;
+}
