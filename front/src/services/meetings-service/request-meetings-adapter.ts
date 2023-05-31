@@ -6,7 +6,7 @@ export interface IMeeting {
   hour: string;
   roomId: string;
   duration: string;
-  id: string
+  id: string;
 }
 
 class RequestMeetingsAdapter {
@@ -20,8 +20,8 @@ class RequestMeetingsAdapter {
     const rawData = response.data;
     return rawData.map((meeting: any) => ({
       name: meeting.title,
-      date: meeting.date,
-      hour: meeting.start_time,
+      date: new Date(meeting.date).toLocaleDateString(),
+      hour: meeting.start_time.substr(0,5),
       duration: meeting.duration,
       id: meeting.id,
     }));

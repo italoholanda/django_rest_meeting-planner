@@ -3,16 +3,17 @@
 import BasePage from "@/components/BasePage";
 import ContentBox from "@/components/ContentBox";
 
-import { useSession } from "@/hooks/useSession";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-
-import "./styles.css";
-import { RoomsSelect } from "@/components/RoomsSelect";
 import {
   CreateMeetingAdapter,
   IMeeting,
 } from "@/services/meetings-service/create-meeting-adapter";
+
+import { useSession } from "@/hooks/useSession";
+import { RoomsSelect } from "@/components/RoomsSelect";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
+import "./styles.css";
 
 interface IFormData {
   name?: string;
@@ -57,9 +58,7 @@ const Login = () => {
 
     try {
       setFormState("LOADING");
-      await new CreateMeetingAdapter(token).register(
-        data as IMeeting
-      );
+      await new CreateMeetingAdapter(token).register(data as IMeeting);
       router.push("/");
       setFormState("READY");
     } catch {

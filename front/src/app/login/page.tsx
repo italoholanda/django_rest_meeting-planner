@@ -39,6 +39,7 @@ const Login = () => {
       setToken("");
       alert("Failed to login");
       setData({});
+      setFormState("FAILED")
     }
   };
 
