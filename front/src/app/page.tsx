@@ -4,30 +4,12 @@ import BasePage from "@/components/BasePage";
 import ContentBox from "@/components/ContentBox";
 import "@/styles/homepage.css";
 
-import {
-  IMeeting,
-  RequestMeetingsAdapter,
-} from "@/services/meetings-service/request-meetings-adapter";
-
-import { useEffect, useState } from "react";
-import { useSession } from "@/hooks/useSession";
 import { useRouter } from "next/navigation";
+import { useMeetings } from "@/hooks/useMeetings";
 
 export default function Home() {
-  const { token } = useSession();
   const router = useRouter();
-  const [meetings, setMeetings] = useState<IMeeting[]>([]);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const meetings = await new RequestMeetingsAdapter(token).request();
-        setMeetings(meetings);
-      } catch {
-        router.push("/login");
-      }
-    })();
-  }, []);
+  const meetings = useMeetings();
 
   return (
     <BasePage>
