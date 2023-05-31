@@ -1,3 +1,9 @@
+CLIENT_ID=kX6duT4yLbYVVoNBP30K2V0dMctq65iZUH7XaaZd
 
+CLIENT_SECRET=WVfw4UDRZPywjS0iCRbgGzY51wMA1E0VTQrUENyj7SAFNRdqcVmMK03dAVhI1Azjt57zJvWqrkZZ2FSjSWuL7epYAAQrpkcnQRHVNKvPmB6hRaPjhrcNu52Zi86HJowV
+
+USER_NAME=john.doe
+
+USER_PASSWORD=FooBaar2003
 
 curl -X POST -d "grant_type=password&username=$USER_NAME&password=$USER_PASSWORD" -u "$CLIENT_ID:$CLIENT_SECRET" http://localhost:8000/o/token/

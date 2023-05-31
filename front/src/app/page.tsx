@@ -41,11 +41,19 @@ export default function Home() {
 
         <ul className="meetings">
           <li>
-            <button className="meeting new">+ add meeting</button>
+            <button
+              className="meeting new"
+              onClick={() => router.push("/meetings/new")}
+            >
+              + add meeting
+            </button>
           </li>
           {meetings.map((meeting) => (
             <li key={meeting.id}>
-              <button className="meeting" onClick={() => router.push("/meetings/" + meeting.id)}>
+              <button
+                className="meeting"
+                onClick={() => router.push("/meetings/" + meeting.id)}
+              >
                 <span>📅</span>
                 <p>{meeting.name}</p>
                 <p className="min-text">

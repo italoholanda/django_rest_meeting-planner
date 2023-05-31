@@ -9,10 +9,15 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import "./styles.css";
+import { RoomsSelect } from "@/components/RoomsSelect";
 
 interface IFormData {
-  username?: string;
-  password?: string;
+  name?: string;
+  date?: string;
+  hour?: string;
+  roomId?: string;
+  duration?: string;
+  id?: string;
 }
 
 type FormState = "LOADING" | "READY" | "FAILED";
@@ -29,7 +34,7 @@ const Login = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    if (!data.password || !data.username) alert("Invalid");
+
     try {
       setFormState("LOADING");
       const request = await axios.post("/api/login", data);
@@ -45,23 +50,23 @@ const Login = () => {
   return (
     <BasePage>
       <ContentBox>
-        <strong>Login</strong>
+        <strong>New meeting</strong>
         <hr />
         <form onSubmit={handleSubmit}>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            value={data.username || ""}
-            onChange={(e) => setData({ ...data, username: e.target.value })}
-            disabled={isLoading}
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            value={data.password || ""}
-            onChange={(e) => setData({ ...data, password: e.target.value })}
-            disabled={isLoading}
-          />
+          <label htmlFor="name">Meeting name</label>
+          <input id="name" />
+
+          <label htmlFor="date">Date</label>
+          <input id="date" type="date" />
+
+          <label htmlFor="hours">Start hours</label>
+          <input id="hours" type="time" />
+
+          <label htmlFor="duration">Duration (h)</label>
+          <input id="duration" type="number" min={1} max={4} />
+
+          <label htmlFor="room">Room</label>
+          <RoomsSelect />
           <button disabled={isLoading}>
             {isLoading ? "Loading..." : "Submit"}
           </button>
