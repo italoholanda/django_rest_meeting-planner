@@ -16,7 +16,8 @@ class RequestRoomAdapter {
       floor: room.floor,
       number: room.number,
     }));
-    return list[0]
+    if (list.length > 0) return list[0];
+    else throw new Error("Not found");
   }
 }
 

@@ -1,5 +1,5 @@
 import { IMeeting } from "@/model/meetings";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 class RequestMeetingAdapter {
   private SERVER_URL = `${process.env.NEXT_PUBLIC_BACKEND}/meetings`;
@@ -18,7 +18,8 @@ class RequestMeetingAdapter {
       roomId: meeting.room,
       id: meeting.id,
     }));
-    return list[0];
+    if (list.length > 0) return list[0];
+    else throw new Error("Not found");
   }
 }
 
