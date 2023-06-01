@@ -21,7 +21,7 @@ export default function Home() {
       <hr />
       <p>Meetings:</p>
 
-      {Boolean(meetings.length) && (
+      {Boolean(meetings) && (
         <ul className="meetings">
           <li>
             <button
@@ -32,7 +32,7 @@ export default function Home() {
             </button>
           </li>
 
-          {meetings.map((meeting) => (
+          {meetings?.map((meeting) => (
             <li key={meeting.id}>
               <button
                 className="meeting"
@@ -50,7 +50,7 @@ export default function Home() {
         </ul>
       )}
 
-      {!meetings.length && (
+      {!meetings && (
         <div className="centered">
           <LoadingIcon />
         </div>

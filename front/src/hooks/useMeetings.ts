@@ -8,7 +8,7 @@ import { handleServerErrors } from "@/util/handleServerErrors";
 
 const useMeetings = () => {
   const { token, tokenLoaded } = useSession();
-  const [meetings, setMeetings] = useState<IMeeting[]>([]);
+  const [meetings, setMeetings] = useState<IMeeting[]>();
 
   useEffect(() => {
     if (tokenLoaded)
