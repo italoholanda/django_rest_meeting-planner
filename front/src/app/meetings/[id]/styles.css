@@ -13,3 +13,14 @@
 .min-text {
   font-size: 0.75rem;
 }
+
+.card-header {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header-btns {
+  display: flex;
+  gap: 0.5rem;
+}

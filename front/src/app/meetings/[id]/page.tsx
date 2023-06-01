@@ -1,6 +1,8 @@
 "use client";
 
 import ContentBox from "@/components/ContentBox";
+import EditButton from "@/components/EditButton";
+import DeleteMeetingButton from "@/components/DeleteMeetingButton";
 
 import "./styles.css";
 
@@ -14,9 +16,15 @@ const Login = () => {
   if (meeting)
     return (
       <ContentBox>
-        <div className="card-line">
-          <span className="min-text">meeting:</span>
-          <h1>{meeting.name}</h1>
+        <div className="card-line card-header">
+          <div>
+            <span className="min-text">meeting:</span>
+            <h1>{meeting.name}</h1>
+          </div>
+          <div className="card-header-btns">
+            <EditButton editUrl={`/meetings/edit/${id}`} />
+            <DeleteMeetingButton id={id} />
+          </div>
         </div>
 
         <hr />
