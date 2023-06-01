@@ -1,5 +1,7 @@
 import { SessionContextProvider } from "@/contexts/SessionContext";
 import "./globals.css";
+import BasePage from "@/components/BasePage";
+import ContentBox from "@/components/ContentBox";
 
 export const metadata = {
   title: "👾 meeting planner",
@@ -14,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <SessionContextProvider>{children}</SessionContextProvider>
+        <BasePage>
+          <SessionContextProvider>{children}</SessionContextProvider>
+        </BasePage>
       </body>
     </html>
   );

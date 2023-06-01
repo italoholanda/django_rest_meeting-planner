@@ -65,53 +65,51 @@ const Login = () => {
   };
 
   return (
-    <BasePage>
-      <ContentBox>
-        <strong>New meeting</strong>
-        <hr />
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Meeting name</label>
-          <input
-            id="name"
-            value={data.name || ""}
-            onChange={(e) => onChangeData("name", e.currentTarget.value)}
-          />
+    <ContentBox>
+      <strong>New meeting</strong>
+      <hr />
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="name">Meeting name</label>
+        <input
+          id="name"
+          value={data.name || ""}
+          onChange={(e) => onChangeData("name", e.currentTarget.value)}
+        />
 
-          <label htmlFor="date">Date</label>
-          <input
-            id="date"
-            type="date"
-            value={data.date || ""}
-            onChange={(e) => onChangeData("date", e.currentTarget.value)}
-          />
+        <label htmlFor="date">Date</label>
+        <input
+          id="date"
+          type="date"
+          value={data.date || ""}
+          onChange={(e) => onChangeData("date", e.currentTarget.value)}
+        />
 
-          <label htmlFor="hours">Start hours</label>
-          <input
-            id="hours"
-            type="time"
-            value={data.hour || ""}
-            onChange={(e) => onChangeData("hour", e.currentTarget.value)}
-          />
+        <label htmlFor="hours">Start hours</label>
+        <input
+          id="hours"
+          type="time"
+          value={data.hour || ""}
+          onChange={(e) => onChangeData("hour", e.currentTarget.value)}
+        />
 
-          <label htmlFor="duration">Duration (h)</label>
-          <input
-            id="duration"
-            type="number"
-            min={1}
-            max={4}
-            value={data.duration || ""}
-            onChange={(e) => onChangeData("duration", e.currentTarget.value)}
-          />
+        <label htmlFor="duration">Duration (h)</label>
+        <input
+          id="duration"
+          type="number"
+          min={1}
+          max={4}
+          value={data.duration || ""}
+          onChange={(e) => onChangeData("duration", e.currentTarget.value)}
+        />
 
-          <label htmlFor="room">Room</label>
-          <RoomsSelect onChange={(id) => onChangeData("roomId", id)} />
+        <label htmlFor="room">Room</label>
+        <RoomsSelect onChange={(id) => onChangeData("roomId", id)} />
 
-          <button type="submit" disabled={isLoading}>
-            {isLoading ? "Loading..." : "Submit"}
-          </button>
-        </form>
-      </ContentBox>
-    </BasePage>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? "Loading..." : "Submit"}
+        </button>
+      </form>
+    </ContentBox>
   );
 };
 

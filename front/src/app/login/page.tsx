@@ -1,6 +1,5 @@
 "use client";
 
-import BasePage from "@/components/BasePage";
 import ContentBox from "@/components/ContentBox";
 import axios from "axios";
 
@@ -39,36 +38,34 @@ const Login = () => {
       setToken("");
       alert("Failed to login");
       setData({});
-      setFormState("FAILED")
+      setFormState("FAILED");
     }
   };
 
   return (
-    <BasePage>
-      <ContentBox>
-        <strong>Login</strong>
-        <hr />
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            value={data.username || ""}
-            onChange={(e) => setData({ ...data, username: e.target.value })}
-            disabled={isLoading}
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            value={data.password || ""}
-            onChange={(e) => setData({ ...data, password: e.target.value })}
-            disabled={isLoading}
-          />
-          <button disabled={isLoading}>
-            {isLoading ? "Loading..." : "Submit"}
-          </button>
-        </form>
-      </ContentBox>
-    </BasePage>
+    <ContentBox>
+      <strong>Login</strong>
+      <hr />
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          value={data.username || ""}
+          onChange={(e) => setData({ ...data, username: e.target.value })}
+          disabled={isLoading}
+        />
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          value={data.password || ""}
+          onChange={(e) => setData({ ...data, password: e.target.value })}
+          disabled={isLoading}
+        />
+        <button disabled={isLoading}>
+          {isLoading ? "Loading..." : "Submit"}
+        </button>
+      </form>
+    </ContentBox>
   );
 };
 
