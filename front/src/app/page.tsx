@@ -2,6 +2,8 @@
 
 import BasePage from "@/components/BasePage";
 import ContentBox from "@/components/ContentBox";
+import LoadingIcon from "@/components/LoadingIcon";
+
 import "@/styles/homepage.css";
 
 import { useRouter } from "next/navigation";
@@ -21,31 +23,40 @@ export default function Home() {
         <hr />
         <p>Meetings:</p>
 
-        <ul className="meetings">
-          <li>
-            <button
-              className="meeting new"
-              onClick={() => router.push("/meetings/new")}
-            >
-              + add meeting
-            </button>
-          </li>
-          {meetings.map((meeting) => (
-            <li key={meeting.id}>
+        {Boolean(meetings.length) && (
+          <ul className="meetings">
+            <li>
               <button
-                className="meeting"
-                onClick={() => router.push("/meetings/" + meeting.id)}
+                className="meeting new"
+                onClick={() => router.push("/meetings/new")}
               >
-                <span>📅</span>
-                <p>{meeting.name}</p>
-                <p className="min-text">
-                  {meeting.hour}, <br />
-                  {meeting.date}
-                </p>
+                + add meeting
               </button>
             </li>
-          ))}
-        </ul>
+
+            {meetings.map((meeting) => (
+              <li key={meeting.id}>
+                <button
+                  className="meeting"
+                  onClick={() => router.push("/meetings/" + meeting.id)}
+                >
+                  <span>📅</span>
+                  <p>{meeting.name}</p>
+                  <p className="min-text">
+                    {meeting.hour}, <br />
+                    {meeting.date}
+                  </p>
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {!meetings.length && (
+          <div className="centered">
+            <LoadingIcon />
+          </div>
+        )}
       </ContentBox>
     </BasePage>
   );
