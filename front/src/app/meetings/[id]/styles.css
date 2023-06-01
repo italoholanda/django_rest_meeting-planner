@@ -1,0 +1,15 @@
+.card-line {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.min-text {
+  font-size: 0.75rem;
+}
