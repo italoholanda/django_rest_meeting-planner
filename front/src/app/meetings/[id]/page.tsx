@@ -5,11 +5,11 @@ import ContentBox from "@/components/ContentBox";
 
 import "./styles.css";
 import { useParams } from "next/navigation";
-import { useMeeting } from "@/hooks/useMeeting";
+import { useMeetingDetailsFacade } from "@/hooks/useMeetingDetailsFacade";
 
 const Login = () => {
   const { id } = useParams();
-  const meeting = useMeeting(id);
+  const meeting = useMeetingDetailsFacade(id);
 
   if (meeting)
     return (
@@ -25,7 +25,7 @@ const Login = () => {
           <div className="card-line">
             <span className="min-text">Details:</span>
             <ul className="list">
-              <li className="min-text">🚪 {meeting.roomId}</li>
+              <li className="min-text">🚪 {meeting.room?.name}</li>
               <li className="min-text">🗓️ {meeting.date}</li>
               <li className="min-text">🕒 {meeting.hour}</li>
               <li className="min-text">⌛ {meeting.duration} hour</li>

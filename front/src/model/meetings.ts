@@ -6,3 +6,10 @@ export interface IMeeting {
   duration: string;
   id: string;
 }
+
+export interface IMeetingDetails extends IMeeting {
+  room: {
+    name: string;
+    floor: string;
+  };
+}
