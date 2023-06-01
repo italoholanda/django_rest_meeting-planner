@@ -12,6 +12,12 @@ def get_meetings(request):
     serializer = MeetingSerializer(objects, many=True)
     return Response(serializer.data)
 
+@api_view(['GET'])
+def get_meeting(request, id):
+    user_id = request.user.id
+    objects = Meeting.objects.filter(pk=id, user_id=user_id)
+    serializer = MeetingSerializer(objects, many=True)
+    return Response(serializer.data)
 
 @api_view(['POST'])
 def create_meeting(request):
