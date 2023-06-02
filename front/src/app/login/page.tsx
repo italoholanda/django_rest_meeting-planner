@@ -61,7 +61,7 @@ const Login = () => {
           onChange={(e) => setData({ ...data, password: e.target.value })}
           disabled={isLoading}
         />
-        <button disabled={isLoading}>
+        <button className="submit-btn" disabled={isLoading}>
           {isLoading ? "Loading..." : "Submit"}
         </button>
       </form>

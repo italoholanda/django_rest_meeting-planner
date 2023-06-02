@@ -13,6 +13,7 @@ import { useMeeting } from "@/hooks/useMeeting";
 import { localDateToISOString } from "@/util/formatDate";
 
 import "./styles.css";
+import EditMeetingPageNav from "@/components/EditMeetingPageNav";
 
 interface IFormData {
   name?: string;
@@ -78,63 +79,74 @@ const EditMeeting = () => {
 
   if (!initialMeeting)
     return (
-      <ContentBox>
-        <strong>Edit meeting</strong>
-        <hr />
-        <br />
-        <center>
-          <LoadingIcon />
-        </center>
-        <br />
-      </ContentBox>
+      <>
+        <ContentBox>
+          <EditMeetingPageNav id={id} />
+        </ContentBox>
+        <ContentBox>
+          <strong>Edit meeting</strong>
+          <hr />
+          <br />
+          <center>
+            <LoadingIcon />
+          </center>
+          <br />
+        </ContentBox>
+      </>
     );
 
   return (
-    <ContentBox>
-      <strong>Edit meeting</strong>
-      <hr />
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Meeting name</label>
-        <input
-          id="name"
-          value={data.name || ""}
-          onChange={(e) => onChangeData("name", e.currentTarget.value)}
-        />
+    <>
+      <ContentBox>
+        <EditMeetingPageNav id={id} />
+      </ContentBox>
 
-        <label htmlFor="date">Date</label>
-        <input
-          id="date"
-          type="date"
-          value={data.date || ""}
-          onChange={(e) => onChangeData("date", e.currentTarget.value)}
-        />
+      <ContentBox>
+        <strong>Edit meeting</strong>
+        <hr />
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="name">Meeting name</label>
+          <input
+            id="name"
+            value={data.name || ""}
+            onChange={(e) => onChangeData("name", e.currentTarget.value)}
+          />
 
-        <label htmlFor="hours">Start hours</label>
-        <input
-          id="hours"
-          type="time"
-          value={data.hour || ""}
-          onChange={(e) => onChangeData("hour", e.currentTarget.value)}
-        />
+          <label htmlFor="date">Date</label>
+          <input
+            id="date"
+            type="date"
+            value={data.date || ""}
+            onChange={(e) => onChangeData("date", e.currentTarget.value)}
+          />
 
-        <label htmlFor="duration">Duration (h)</label>
-        <input
-          id="duration"
-          type="number"
-          min={1}
-          max={4}
-          value={data.duration || ""}
-          onChange={(e) => onChangeData("duration", e.currentTarget.value)}
-        />
+          <label htmlFor="hours">Start hours</label>
+          <input
+            id="hours"
+            type="time"
+            value={data.hour || ""}
+            onChange={(e) => onChangeData("hour", e.currentTarget.value)}
+          />
 
-        <label htmlFor="room">Room</label>
-        <RoomsSelect onChange={(id) => onChangeData("roomId", id)} />
+          <label htmlFor="duration">Duration (h)</label>
+          <input
+            id="duration"
+            type="number"
+            min={1}
+            max={4}
+            value={data.duration || ""}
+            onChange={(e) => onChangeData("duration", e.currentTarget.value)}
+          />
 
-        <button type="submit" disabled={isLoading}>
-          {isLoading ? "Loading..." : "Edit meeting"}
-        </button>
-      </form>
-    </ContentBox>
+          <label htmlFor="room">Room</label>
+          <RoomsSelect onChange={(id) => onChangeData("roomId", id)} />
+
+          <button className="submit-btn" type="submit" disabled={isLoading}>
+            {isLoading ? "Loading..." : "Edit meeting"}
+          </button>
+        </form>
+      </ContentBox>
+    </>
   );
 };
 

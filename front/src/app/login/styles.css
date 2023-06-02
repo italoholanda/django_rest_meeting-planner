@@ -23,7 +23,7 @@ form {
   margin: 0 auto;
 }
 
-button {
+.submit-btn {
   background: #8844ee;
   text-transform: uppercase;
   font-weight: 700;
@@ -35,6 +35,6 @@ button {
   margin-top: 1rem;
 }
 
-button:disabled {
+.submit-btn:disabled {
   opacity: 0.75;
 }
