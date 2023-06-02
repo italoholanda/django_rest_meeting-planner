@@ -1,0 +1,6 @@
+.areyousure-btns {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}

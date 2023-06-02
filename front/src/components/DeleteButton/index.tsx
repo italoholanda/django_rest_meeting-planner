@@ -1,21 +1,19 @@
 import "./styles.css";
 import { useState } from "react";
 
-interface IProps {
-  onDelete: () => any;
-}
-
 type Status = "DELETE" | "DELETING";
 
-const DeleteButton = (props: IProps) => {
-  const [status, setStatus] = useState<Status>("DELETE");
+interface IProps {
+  onDelete: () => any;
+  status: Status;
+}
 
+const DeleteButton = (props: IProps) => {
   const onClick = () => {
     props.onDelete();
-    setStatus("DELETING");
   };
 
-  if (status === "DELETE")
+  if (props.status === "DELETE")
     return (
       <button onClick={onClick} className="del-btn">
         🗑 Delete
@@ -29,4 +27,4 @@ const DeleteButton = (props: IProps) => {
   );
 };
 
-export default DeleteButton
+export default DeleteButton;

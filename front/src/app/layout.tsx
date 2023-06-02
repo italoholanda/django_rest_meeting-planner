@@ -19,6 +19,7 @@ export default function RootLayout({
         <BasePage>
           <SessionContextProvider>{children}</SessionContextProvider>
         </BasePage>
+        <div id="portals"></div>
       </body>
     </html>
   );
