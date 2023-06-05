@@ -11,9 +11,6 @@ class TestModels(TestCase):
             user_id=1
         )
 
-    def create_room(self):
-        return
-
     def test_room_creation(self):
         self.assertTrue(isinstance(self.room, Room))
         self.assertEqual(self.room.name, "Example room")
