@@ -7,7 +7,7 @@ class RequestMeetingsAdapter {
   constructor(private token: string) {}
 
   public async request(): Promise<IMeeting[]> {
-    const headers = { Authorization: `Bearer ${this.token}` };
+    const headers = { Authorization: `Token ${this.token}` };
     const response = await axios.get(this.SERVER_URL, { headers });
     const rawData = response.data;
     return rawData.map((meeting: any) => ({

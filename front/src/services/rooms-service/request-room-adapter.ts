@@ -7,7 +7,7 @@ class RequestRoomAdapter {
   constructor(private token: string) {}
 
   public async request(id: string): Promise<IRoom> {
-    const headers = { Authorization: `Bearer ${this.token}` };
+    const headers = { Authorization: `Token ${this.token}` };
     const response = await axios.get(`${this.SERVER_URL}/${id}/`, { headers });
     const rawData = response.data;
     const list = rawData.map((room: any) => ({

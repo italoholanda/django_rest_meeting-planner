@@ -14,7 +14,7 @@ class CreateMeetingAdapter {
       start_time: meeting.hour + ":00",
       room: Number(meeting.roomId),
     };
-    const headers = { Authorization: `Bearer ${this.token}` };
+    const headers = { Authorization: `Token ${this.token}` };
     await axios.post(this.SERVER_URL, body, { headers });
   }
 }

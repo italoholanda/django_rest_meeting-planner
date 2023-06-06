@@ -14,7 +14,7 @@ class EditMeetingAdapter {
       start_time: meeting.hour + ":00",
       room: Number(meeting.roomId),
     };
-    const headers = { Authorization: `Bearer ${this.token}` };
+    const headers = { Authorization: `Token ${this.token}` };
     await axios.put(`${this.SERVER_URL}?id=${meeting.id}`, body, { headers });
   }
 }

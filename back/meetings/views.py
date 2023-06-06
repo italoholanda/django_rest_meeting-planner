@@ -3,8 +3,11 @@ from .serializers import MeetingSerializer
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from rest_framework.permissions import IsAuthenticated
 
 
+permission_classes = (IsAuthenticated,)
+    
 @api_view(['GET'])
 def get_meetings(request):
     user_id = request.user.id

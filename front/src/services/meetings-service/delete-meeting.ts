@@ -6,7 +6,7 @@ class DeleteMeeting {
   constructor(private token: string) {}
 
   public async delete(id: string) {
-    const headers = { Authorization: `Bearer ${this.token}` };
+    const headers = { Authorization: `Token ${this.token}` };
     await axios.delete(`${this.SERVER_URL}/?id=${id}`, { headers });
   }
 }
